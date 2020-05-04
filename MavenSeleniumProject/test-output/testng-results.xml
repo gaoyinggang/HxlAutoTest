@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="10270" started-at="2020-05-03T13:05:04 CST" finished-at="2020-05-03T13:05:15 CST">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="10270" started-at="2020-05-03T13:05:04 CST" finished-at="2020-05-03T13:05:15 CST">
+      <class name="demo.LoginTest">
+        <test-method status="PASS" signature="start()[pri:0, instance:demo.LoginTest@9353778]" name="start" is-config="true" duration-ms="9056" started-at="2020-05-03T13:04:55 CST" finished-at="2020-05-03T13:05:04 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- start -->
+        <test-method status="PASS" signature="loginTest(java.lang.String, java.lang.String)[pri:0, instance:demo.LoginTest@9353778]" name="loginTest" duration-ms="10059" started-at="2020-05-03T13:05:04 CST" data-provider="userinfo" finished-at="2020-05-03T13:05:15 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[xiaole.huang-p0059@aqara.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[123456]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="end()[pri:0, instance:demo.LoginTest@9353778]" name="end" is-config="true" duration-ms="3556" started-at="2020-05-03T13:05:15 CST" finished-at="2020-05-03T13:05:18 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- end -->
+      </class> <!-- demo.LoginTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
