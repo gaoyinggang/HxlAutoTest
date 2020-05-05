@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -19,7 +20,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ExcelReader {
 
     private static Logger logger = Logger.getLogger(ExcelReader.class.getName()); // 日志打印类
-
+    
     private static final String XLS = "xls";
     private static final String XLSX = "xlsx";
 
@@ -45,7 +46,7 @@ public class ExcelReader {
      * @param fileName 要读取的Excel文件所在路径
      * @return 读取结果列表，读取失败时返回null
      */
-    public static List<ExcelData> readExcel(String fileName) {
+    public static Map<String, ArrayList<String>> readExcel(String fileName) {
 
         Workbook workbook = null;
         FileInputStream inputStream = null;
@@ -65,9 +66,9 @@ public class ExcelReader {
             workbook = getWorkbook(inputStream, fileType);
 
             // 读取excel中的数据
-            List<ExcelData> resultDataList = parseExcel(workbook);
+            Map<String, ArrayList<String>> resultData = parseExcel(workbook);
 
-            return resultDataList;
+            return resultData;
         } catch (Exception e) {
             logger.warn("解析Excel失败，文件名：" + fileName + " 错误信息：" + e.getMessage());
             return null;
@@ -91,8 +92,8 @@ public class ExcelReader {
      * @param workbook Excel工作簿对象
      * @return 解析结果
      */
-    private static List<ExcelData> parseExcel(Workbook workbook) {
-       List<ExcelData> resultDataList = new ArrayList<ExcelData>();
+    private static Map<String, ArrayList<String>> parseExcel(Workbook workbook) {
+       Map<String, ArrayList<String>> resultData = new HashMap<String, ArrayList<String>>();
         // 解析sheet
         for (int sheetNum = 0; sheetNum < workbook.getNumberOfSheets(); sheetNum++) {
             Sheet sheet = workbook.getSheetAt(sheetNum);
@@ -114,21 +115,21 @@ public class ExcelReader {
             int rowEnd = sheet.getPhysicalNumberOfRows();
             for (int rowNum = rowStart; rowNum < rowEnd; rowNum++) {
                 Row row = sheet.getRow(rowNum);
-
                 if (null == row) {
                     continue;
                 }
-
-                ExcelData resultData = convertRowToData(row);
-                if (null == resultData) {
+                ArrayList<String> result = convertRowToData(row);
+                if (result.isEmpty()||null == result) {
                     logger.warn("第 " + row.getRowNum() + "行数据不合法，已忽略！");
                     continue;
                 }
-                resultDataList.add(resultData);
+                String key = result.get(0);
+                result.remove(0);
+                resultData.put(key, result);
             }
         }
 
-        return resultDataList;
+        return resultData;
     }
 
     /**
@@ -177,24 +178,18 @@ public class ExcelReader {
      * @param row 行数据
      * @return 解析后的行数据对象，行数据错误时返回null
      */
-    private static ExcelData convertRowToData(Row row) {
-        ExcelData resultData = new ExcelData();
-
+    private static ArrayList<String> convertRowToData(Row row) {
+    	ArrayList<String> valList = new ArrayList<String>();
         Cell cell;
         int cellNum = 0;
-        // 获取姓名
-        cell = row.getCell(cellNum++);
-        String opreat = convertCellValueToString(cell);
-        resultData.setOpreat(opreat);
-        
-        cell = row.getCell(cellNum++);
-        String elsment = convertCellValueToString(cell);
-        resultData.setElement(elsment);
-        
-        cell = row.getCell(cellNum++);
-        String value = convertCellValueToString(cell);
-        resultData.setValue(value);
-        
-        return resultData;
+        String value = "";
+        do {
+        	 cell = row.getCell(cellNum++);
+             value = convertCellValueToString(cell);
+             if(null!=value) {
+            	 valList.add(value);
+             }
+        }while(null!=value);
+        return valList;
     }
 }

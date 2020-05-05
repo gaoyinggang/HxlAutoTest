@@ -1,39 +1,36 @@
 package utils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class ExcelData {
+	
+	Map<String, ArrayList<String>> resultMap = new HashMap<String, ArrayList<String>>();
 
-    private String opreat;
+    private String ParaName;
 
-    private String element;
+    private String ParaValue;
 
-    private String value;
-
-	public String getOpreat() {
-		return opreat;
+	public String getParaName() {
+		return ParaName;
 	}
 
-	public void setOpreat(String opreat) {
-		this.opreat = opreat;
+	public void setParaName(String paraName) {
+		ParaName = paraName;
 	}
 
-	public String getElement() {
-		return element;
+	public String getParaValue() {
+		return ParaValue;
 	}
 
-	public void setElement(String element) {
-		this.element = element;
-	}
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
+	public void setParaValue(String paraValue) {
+		ParaValue = paraValue;
 	}
 
 	@Override
 	public String toString() {
-		return "ExcelData [opreat=" + opreat + ", element=" + element + ", value=" + value + "]";
+		return "ExcelData [ParaName=" + ParaName + ", ParaValue=" + ParaValue + "]";
 	}
 	
 	
