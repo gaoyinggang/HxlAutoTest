@@ -27,7 +27,11 @@ class LoginData(object):
             "帐号或密码错误"
         )
     ]
-
+    login_data=[
+        ("xiaole.huang-p0059@aqara.com",
+         "hxl_19921106"
+        )
+    ]
 
 if __name__ == '__main__':
     pass
