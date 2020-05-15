@@ -1,1 +1,31 @@
-[ ]
+[ {
+  "uid" : "6d2c90bf3849d55",
+  "name" : "test_xfail_expected_failure",
+  "time" : {
+    "start" : 1588673412954,
+    "stop" : 1588673412954,
+    "duration" : 0
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "85c718d01a16c6b5",
+  "name" : "test001",
+  "time" : {
+    "start" : 1588672596779,
+    "stop" : 1588672596779,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "58244c0179b52179",
+  "name" : "test_success",
+  "time" : {
+    "start" : 1588673412943,
+    "stop" : 1588673412943,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

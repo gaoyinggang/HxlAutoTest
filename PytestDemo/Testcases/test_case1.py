@@ -2,9 +2,7 @@ import pytest
 
 
 class TestCase1():
-    def test_001(self):
-        print("123")
-    #
+
     def test_success(self):
         """this test succeeds"""
         assert True
@@ -19,7 +17,7 @@ class TestCase1():
     #
     # def test_broken(self):
     #     raise Exception('oops')
-if __name__ == '__main__':
-    t=TestCase1()
-    t.test001()
-    t.test_success()
+# if __name__ == '__main__':
+#     t=TestCase1()
+#     t.test001()
+#     t.test_success()

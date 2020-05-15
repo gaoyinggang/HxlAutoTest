@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"skipped","Tue May 05 18:10:12 CST 2020","Tue May 05 18:10:12 CST 2020","0","Testcases","test_case2","TestCase2","","","test_xfail_expected_failure","this test is an xfail that will be marked as expected failure"
+"passed","Tue May 05 17:56:36 CST 2020","Tue May 05 17:56:36 CST 2020","0","Testcases","test_case1","TestCase1","","","test001",""
+"passed","Tue May 05 18:10:12 CST 2020","Tue May 05 18:10:12 CST 2020","0","Testcases","test_case1","TestCase1","","","test_success","this test succeeds"
