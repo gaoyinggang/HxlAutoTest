@@ -18,7 +18,7 @@ class LoginOdoo(BasePage):
         self.click_login_btn()
 
     def open_url(self):
-        return self.load_url('http://ac-sit.bpit.aqara.com/web/login')
+        return self.load_url('http://mrp-sit.bpit.aqara.com/')
 
     def input_username(self, username):
         return self.send_keys(*LoginOdoo.username,username)

@@ -28,8 +28,8 @@ class LoginData(object):
         )
     ]
     login_data=[
-        ("xiaole.huang-p0059@aqara.com",
-         "hxl_19921106"
+        ("admin",
+         "123456"
         )
     ]
 
